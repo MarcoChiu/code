@@ -24,3 +24,6 @@ const Loading = (() => {
         }
     };
 })();
+
+// 導出為全局變數，讓其他腳本可以使用
+window.Loading = Loading;

@@ -222,3 +222,16 @@ const deleteApi = async (array) => {
     //     axiosError(error);
     // }
 }
+
+// 導出所有函數為全局變數
+window.validateForm = validateForm;
+window.scrollTo = scrollTo;
+window.fUnixTimeToDate = fUnixTimeToDate;
+window.fDateToUnixTime = fDateToUnixTime;
+window.fNumThree = fNumThree;
+window.axiosError = axiosError;
+window.getApi = getApi;
+window.postApi = postApi;
+window.patchApi = patchApi;
+window.putApi = putApi;
+window.deleteApi = deleteApi;

@@ -219,29 +219,6 @@
             color: rgba(255, 255, 255, 0.5);
         }
 
-        .filter-section {
-            display: none;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 10px 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
-            color: #ABB2BF;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .filter-btn.active {
-            background: rgba(97, 175, 239, 0.8);
-            border-color: #61AFEF;
-            color: white;
-        }
-
         .content-area {
             max-width: 1600px;
             margin: 0 auto;
@@ -434,5 +411,46 @@
 
             .code-grid {
                 grid-template-columns: 1fr;
+            }
+        }
+
+        /* 強制刷新按鈕 */
+        .refresh-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .refresh-btn:hover {
+            transform: scale(1.1) rotate(180deg);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .refresh-btn:active {
+            transform: scale(0.95) rotate(180deg);
+        }
+
+        .refresh-btn svg {
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .refresh-btn {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
             }
         }

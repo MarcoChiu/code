@@ -20,6 +20,12 @@
         <span></span>
     </button>
 
+    <button class="refresh-btn" onclick="forceReload()" title="強制重新載入頁面（清除快取）">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
+        </svg>
+    </button>
+
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
@@ -48,10 +54,7 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.26.3/dist/sweetalert2.all.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="./js/Utilities.js"></script>
-    <script src="./js/loading.js"></script>
-    <script src="./js/index.js"></script>
+    <script type="module" src="./main.js"></script>
 </body>
 
 </html>

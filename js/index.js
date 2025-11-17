@@ -18,9 +18,7 @@ function getAllCategories() {
     return allCats.sort();
 }
 
-function initFilterButtons() {
-    // Filter buttons removed - filtering is now done via sidebar menu items only
-}
+
 
 function initMenuItems() {
     var categories = getAllCategories();
@@ -304,6 +302,9 @@ function toggleSidebar() {
     document.getElementById("sidebar").classList.toggle("show");
 }
 
+// 導出為全局函數供 HTML onclick 使用
+window.toggleSidebar = toggleSidebar;
+
 document.getElementById("searchInput").addEventListener("input", function (e) {
     searchTerm = e.target.value.toLowerCase();
     renderCards();
@@ -379,7 +380,8 @@ const init = async () => {
         var pageDirs = {
             'react': ['react001.html', 'react002.html', 'react003.html', 'react004.html'],
             'javascript': [],
-            'csharp': []
+            'csharp': [],
+            'sql':[]
         };
 
         var pagePromises = [];
@@ -388,8 +390,10 @@ const init = async () => {
         Object.keys(pageDirs).forEach(function (dir) {
             var files = pageDirs[dir];
             files.forEach(function (f) {
+                // 使用全局定義的 BASE_URL
+                var path = window.__BASE_URL__ + 'page/' + dir + '/' + f;
                 pagePromises.push(
-                    fetch('./page/' + dir + '/' + f).then(function (res) {
+                    fetch(path).then(function (res) {
                         if (!res.ok) throw new Error('fetch ' + dir + '/' + f + ' failed: ' + res.status);
                         return res.text();
                     }).then(function (html) {
@@ -408,12 +412,10 @@ const init = async () => {
         // 2) 初始化 snippets
         codeSnippets = pageSnippets;
 
-        initFilterButtons();
         initMenuItems();
         renderCards();
     } catch (error) {
         console.error('初始化失敗', error);
-        if (typeof axiosError === 'function') axiosError(error);
     } finally {
         Loading.hide();
     }
