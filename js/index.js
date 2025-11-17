@@ -375,17 +375,30 @@ const init = async () => {
     try {
         Loading.show();
 
-        // 1) 使用預定義的 HTML 檔案清單
-        var pageFiles = ['react001.html', 'react002.html', 'react003.html', 'react004.html'];
-        var pagePromises = pageFiles.map(function (f) {
-            return fetch('../page/' + f).then(function (res) {
-                if (!res.ok) throw new Error('fetch ' + f + ' failed: ' + res.status);
-                return res.text();
-            }).then(function (html) {
-                return parseHtmlToSnippet(html, f);
-            }).catch(function (err) {
-                console.error('無法載入頁面檔案:', f, err);
-                return null;
+        // 1) 定義要掃描的子目錄與檔案
+        var pageDirs = {
+            'react': ['react001.html', 'react002.html', 'react003.html', 'react004.html'],
+            'javascript': [],
+            'csharp': []
+        };
+
+        var pagePromises = [];
+
+        // 遍歷所有子目錄並創建 fetch promise
+        Object.keys(pageDirs).forEach(function (dir) {
+            var files = pageDirs[dir];
+            files.forEach(function (f) {
+                pagePromises.push(
+                    fetch('../page/' + dir + '/' + f).then(function (res) {
+                        if (!res.ok) throw new Error('fetch ' + dir + '/' + f + ' failed: ' + res.status);
+                        return res.text();
+                    }).then(function (html) {
+                        return parseHtmlToSnippet(html, f);
+                    }).catch(function (err) {
+                        console.error('無法載入頁面檔案:', dir + '/' + f, err);
+                        return null;
+                    })
+                );
             });
         });
 
