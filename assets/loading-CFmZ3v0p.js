@@ -1,0 +1,1 @@
+const d=(()=>{let n=0,e=document.querySelector(".loading-mask");return e||(e=document.createElement("div"),e.className="loading-mask d-none",e.innerHTML='<div class="loading-circle-notch"></div>',document.body.appendChild(e)),{show(){n++,n===1&&e.classList.remove("d-none")},hide(){n>0&&(n--,n===0&&e.classList.add("d-none"))}}})();window.Loading=d;
