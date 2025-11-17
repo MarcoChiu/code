@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import fs from 'fs';
 
 export default defineConfig({
-  base: process.env.NODE_ENV === "production" ? '/searchcode/' : '/',
+  base: process.env.NODE_ENV === "production" ? '/code/' : '/',
   plugins: [
     {
       name: 'replace-base-url',
@@ -13,7 +13,7 @@ export default defineConfig({
         if (process.env.NODE_ENV === "production" && isMainJs) {
           return code.replace(
             "window.__BASE_URL__ = '/';",
-            "window.__BASE_URL__ = '/searchcode/';"
+            "window.__BASE_URL__ = '/code/';"
           );
         }
         return code;

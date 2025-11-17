@@ -389,7 +389,7 @@ const init = async () => {
         // 1) 定義要掃描的子目錄與檔案
         // 只需設定數字,會自動生成 001.html ~ 00N.html
         var pageDirs = {
-            'react': generateFileNames(0),      // 生成 001.html ~ 004.html
+            'react': generateFileNames(4),      // 生成 001.html ~ 004.html
             'javascript': generateFileNames(0), // 生成 001.html ~ 005.html
             'csharp': generateFileNames(0),     // 空陣列
             'sql': generateFileNames(0)         // 空陣列
