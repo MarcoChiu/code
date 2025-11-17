@@ -9,8 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.26.3/dist/sweetalert2.min.css" rel="stylesheet">
     <!-- loading  -->
     <!-- 原本的style -->
-  <script type="module" crossorigin src="/assets/index-CeTYzPzM.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-CKxTHS7S.css">
+  <link rel="stylesheet" crossorigin href="/code/assets/index-CKxTHS7S.css">
 </head>
 
 <body>
@@ -50,11 +49,13 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.26.3/dist/sweetalert2.all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        // 定義 BASE_URL，根據環境自動設定
-        window.__BASE_URL__ = import.meta.env.BASE_URL || '/';
+        // 定義 BASE_URL 在載入其他腳本之前
+        window.__BASE_URL__ = window.location.pathname.includes('/code/') ? '/code/' : '/';
+        console.log('BASE_URL defined:', window.__BASE_URL__);
     </script>
     <script src="./js/Utilities.js"></script>
-    <script src="./js/loading.js"></script>
+    <script src="./js/loading.js"></script>
+    <script src="./js/index.js"></script>
 </body>
 
 </html>
