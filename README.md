@@ -4,7 +4,7 @@
 
 ## 🌐 線上展示
 
-- **GitHub Pages**: [https://marcochiu.github.io/code/](https://marcochiu.github.io/code/)
+- **GitHub Pages**: [https://marcochiu.github.io/searchcode/](https://marcochiu.github.io/searchcode/)
 
 ## ✨ 功能特色
 
@@ -56,7 +56,7 @@ code/
 
 ```bash
 # 複製專案
-git clone https://github.com/MarcoChiu/code.git
+git clone https://github.com/MarcoChiu/SearchCode.git
 
 # 進入專案目錄
 cd code
@@ -119,7 +119,7 @@ npm run deploy
 
 ```javascript
 var pageDirs = {
-    'react': ['react001.html', 'react002.html', 'your-new-file.html'],
+    'react': ['001.html', '002.html'],
     'javascript': [],
     'csharp': []
 };

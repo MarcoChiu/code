@@ -371,17 +371,28 @@ function parseHtmlToSnippet(html, filename) {
     };
 }
 
-// 初始化：同時從 data/*.json 與 page/*.html 載入並合併成 codeSnippets
+// 生成檔案名稱陣列的輔助函數
+function generateFileNames(count) {
+    var files = [];
+    for (var i = 1; i <= count; i++) {
+        var num = i.toString().padStart(3, '0');
+        files.push(num + '.html');
+    }
+    return files;
+}
+
+// 初始化:同時從 data/*.json 與 page/*.html 載入並合併成 codeSnippets
 const init = async () => {
     try {
         Loading.show();
 
         // 1) 定義要掃描的子目錄與檔案
+        // 只需設定數字,會自動生成 001.html ~ 00N.html
         var pageDirs = {
-            'react': ['react001.html', 'react002.html', 'react003.html', 'react004.html'],
-            'javascript': [],
-            'csharp': [],
-            'sql':[]
+            'react': generateFileNames(0),      // 生成 001.html ~ 004.html
+            'javascript': generateFileNames(0), // 生成 001.html ~ 005.html
+            'csharp': generateFileNames(0),     // 空陣列
+            'sql': generateFileNames(0)         // 空陣列
         };
 
         var pagePromises = [];
