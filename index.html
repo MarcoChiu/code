@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>程式碼查詢庫</title>
+    <!-- sweetalert2 -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.26.3/dist/sweetalert2.min.css" rel="stylesheet">
+    <!-- loading  -->
+    <!-- 原本的style -->
+  <link rel="stylesheet" crossorigin href="/code/assets/index-CKxTHS7S.css">
+</head>
+
+<body>
+    <button class="menu-toggle" onclick="toggleSidebar()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+            <h2>選單</h2>
+        </div>
+
+        <div class="search-box sidebar-search-box">
+            <svg class="search-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+            </svg>
+            <input type="text" id="searchInput" placeholder="搜尋程式碼...">
+        </div>
+
+        <div class="menu-item active" data-section="all">所有程式碼</div>
+        <div id="menuItems"></div>
+    </aside>
+
+    <div class="main-content">
+        <div class="content-area">
+            <div class="result-count">找到 <span id="count">0</span> 個結果</div>
+            <div class="code-grid" id="codeGrid"></div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.26.3/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./js/Utilities.js"></script>
+    <script src="./js/loading.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
