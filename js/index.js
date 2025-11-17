@@ -389,7 +389,7 @@ const init = async () => {
             var files = pageDirs[dir];
             files.forEach(function (f) {
                 pagePromises.push(
-                    fetch('../page/' + dir + '/' + f).then(function (res) {
+                    fetch('./page/' + dir + '/' + f).then(function (res) {
                         if (!res.ok) throw new Error('fetch ' + dir + '/' + f + ' failed: ' + res.status);
                         return res.text();
                     }).then(function (html) {
