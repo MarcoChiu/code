@@ -49,9 +49,17 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.26.3/dist/sweetalert2.all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        // 定義 BASE_URL 在載入其他腳本之前
-        window.__BASE_URL__ = window.location.pathname.includes('/code/') ? '/code/' : '/';
-        console.log('BASE_URL defined:', window.__BASE_URL__);
+        // 先定義 BASE_URL，會被下面的 script 使用
+        window.__BASE_URL__ = '/';
+        
+        // 測試是否能訪問 page 資料夾
+        fetch('/page/react/react001.html')
+            .then(r => {
+                console.log('Fetch status:', r.status);
+                return r.text();
+            })
+            .then(html => console.log('HTML length:', html.length))
+            .catch(e => console.error('Fetch error:', e));
     </script>
     <script src="./js/Utilities.js"></script>
     <script src="./js/loading.js"></script>
